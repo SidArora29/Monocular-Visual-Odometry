@@ -1,0 +1,13 @@
+{
+    "ROS2.distro": "humble",
+    "python.autoComplete.extraPaths": [
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages",
+        "/PythonAPI/carla/dist/carla-0.9.14-py3.10-linux-x86_64.egg"
+    ],
+    "python.analysis.extraPaths": [
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages",
+        "/PythonAPI/carla/dist/carla-0.9.14-py3.10-linux-x86_64.egg"
+    ]
+}

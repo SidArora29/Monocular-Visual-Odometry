@@ -24,7 +24,7 @@ THE SOFTWARE.
 
 */
 
-#include "vo_features.h"
+#include "../include/mono-vo/vo_features.h"
 
 using namespace cv;
 using namespace std;
@@ -38,7 +38,7 @@ double getAbsoluteScale(int frame_id, int sequence_id, double z_cal)	{
   
   string line;
   int i = 0;
-  ifstream myfile ("/home/avisingh/Datasets/KITTI_VO/00.txt");
+  ifstream myfile ("/media/sid/PortableSSD/data_odometry_poses/dataset/poses/00.txt");
   double x =0, y=0, z = 0;
   double x_prev, y_prev, z_prev;
   if (myfile.is_open())
@@ -82,8 +82,8 @@ int main( int argc, char** argv )	{
   double scale = 1.00;
   char filename1[200];
   char filename2[200];
-  sprintf(filename1, "/home/avisingh/Datasets/KITTI_VO/00/image_2/%06d.png", 0);
-  sprintf(filename2, "/home/avisingh/Datasets/KITTI_VO/00/image_2/%06d.png", 1);
+  sprintf(filename1, "/media/sid/PortableSSD/data_odometry_gray/dataset/sequences/00/image_0/%06d.png", 0);
+  sprintf(filename2, "/media/sid/PortableSSD/data_odometry_gray/dataset/sequences/00/image_1/%06d.png", 1);
 
   char text[100];
   int fontFace = FONT_HERSHEY_PLAIN;
@@ -136,7 +136,8 @@ int main( int argc, char** argv )	{
   Mat traj = Mat::zeros(600, 600, CV_8UC3);
 
   for(int numFrame=2; numFrame < MAX_FRAME; numFrame++)	{
-  	sprintf(filename, "/home/avisingh/Datasets/KITTI_VO/00/image_2/%06d.png", numFrame);
+  	sprintf(filename, "/media/sid/PortableSSD/data_odometry_gray/dataset/sequences/00/image_0/%06d.png", numFrame);
+    // sprintf(filename, "/home/sid/mobile_slam/frames_landscape_reliance/")
     //cout << numFrame << endl;
   	Mat currImage_c = imread(filename);
   	cvtColor(currImage_c, currImage, COLOR_BGR2GRAY);
@@ -191,7 +192,7 @@ int main( int argc, char** argv )	{
     int y = int(t_f.at<double>(2)) + 100;
     circle(traj, Point(x, y) ,1, CV_RGB(255,0,0), 2);
 
-    rectangle( traj, Point(10, 30), Point(550, 50), CV_RGB(0,0,0), CV_FILLED);
+    rectangle( traj, Point(10, 30), Point(550, 50), CV_RGB(0,0,0), cv::FILLED);
     sprintf(text, "Coordinates: x = %02fm y = %02fm z = %02fm", t_f.at<double>(0), t_f.at<double>(1), t_f.at<double>(2));
     putText(traj, text, textOrg, fontFace, fontScale, Scalar::all(255), thickness, 8);
 
