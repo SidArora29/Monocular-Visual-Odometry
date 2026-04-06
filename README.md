@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This is an OpenCV 3.0 based implementation of a monocular visual odometry algorithm.
 
 ## Algorithm
@@ -43,3 +44,6 @@ For any queries, contact: avisingh599@gmail.com
 
 ## License
 MIT
+=======
+# Monocular-Visual-Odometry
+>>>>>>> c9f10a0329fea01d9999de17236efd6dcd477061
